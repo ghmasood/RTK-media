@@ -1,7 +1,21 @@
 {
   "users": [
-    { "id": 1, "name": "Myra" },
-    { "id": 2, "name": "John" }
+    {
+      "name": "Mrs. Lorraine Kuhlman",
+      "id": 1
+    },
+    {
+      "name": "Arturo Halvorson",
+      "id": 2
+    },
+    {
+      "name": "Preston Hodkiewicz",
+      "id": 3
+    },
+    {
+      "name": "Gladys Sporer",
+      "id": 4
+    }
   ],
   "albums": [],
   "photos": []
