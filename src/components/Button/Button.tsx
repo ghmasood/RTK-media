@@ -34,7 +34,7 @@ function Button({
     rest.className,
     "flex items-center px-3 py-1.5 border duration-500",
     {
-      "border-violet-700 hover:bg-violet-500 bg-violet-700 hover:bg-violet-500 text-white":
+      "border-violet-600 hover:bg-violet-700 bg-violet-600  text-white":
         primary,
       "opacity-80 cursor-not-allowed": loading,
       "border-gray-900 bg-gray-900 text-white": secondary,
