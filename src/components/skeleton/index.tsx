@@ -16,9 +16,9 @@ function Skeleton({
         .map((_, i) => (
           <div
             key={i}
-            className={`relative overflow-hidden bg-gray-200 rounded h-10 w-full ${ItemCustomClass}`}
+            className={`relative overflow-hidden bg-violet-200 rounded-xl h-10 w-full ${ItemCustomClass}`}
           >
-            <div className="animate-shimShim absolute inset-0 -translate-x-full bg-gradient-to-r from-gray-200 via-white to-gray-200" />
+            <div className="animate-shimShim absolute inset-0 -translate-x-full bg-gradient-to-r from-violet-200 via-violet-100 to-violet-200" />
           </div>
         ))}
     </div>
