@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchUsers } from "../../store";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import Skeleton from "../skeleton";
 
 function UserList() {
   const dispatch = useAppDispatch();
@@ -11,23 +12,10 @@ function UserList() {
 
   const { data, error, isLoading } = useAppSelector((store) => store.users);
 
-  // if (isLoading) {
-  //   return <span>ff</span>;
-  // }
-  // if (error) {
-  //   return (
-  //     <span>
-  //       {error.name}
-  //       <br />
-  //       {error.message}
-  //     </span>
-  //   );
-  // }
-  // return <div>{data.length}</div>;
   return (
     <>
       {isLoading ? (
-        <span>Loading...</span>
+        <Skeleton numbers={3} customClass="!gap-2" ItemCustomClass="h-10" />
       ) : error ? (
         <div className="flex flex-col items-center">
           <p>{error.name}</p>
