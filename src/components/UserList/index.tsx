@@ -1,9 +1,10 @@
 import { faker } from "@faker-js/faker";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { addUser, fetchUsers } from "../../store";
 import { useAppSelector, useThunk } from "../../store/hooks";
 import Button from "../Button/Button";
 import Skeleton from "../skeleton";
+import ListItem from "./components/userListItem";
 
 function UserList() {
   const [doFetchUsers, isLoadingUsers, loadingUserError] = useThunk(fetchUsers);
@@ -53,14 +54,7 @@ function UserList() {
       ) : (
         <div className="w-full flex flex-col gap-1 max-h-[19.25rem] overflow-scroll">
           {data.map((item) => (
-            <div
-              key={item.id}
-              className="w-full rounded-xl p-2 bg-violet-500 hover:bg-violet-600 duration-300 cursor-pointer min-h-[3rem] flex items-center"
-            >
-              <span className="text-white text-xl font-medium">
-                {item.name}
-              </span>
-            </div>
+            <ListItem key={item.id} name={item.name} id={item.id} />
           ))}
         </div>
       )}

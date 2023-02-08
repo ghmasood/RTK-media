@@ -1,6 +1,6 @@
 import className from "classnames";
 import { ReactNode } from "react";
-import { GoSync } from "react-icons/go";
+import { CgSpinner } from "react-icons/cg";
 
 interface IButtonProps
   extends React.DetailedHTMLProps<
@@ -53,7 +53,11 @@ function Button({
 
   return (
     <button {...rest} className={classes} disabled={loading}>
-      {loading ? <GoSync className="animate-spin" /> : children}
+      {loading ? (
+        <CgSpinner color="white" size={30} className="animate-spin" />
+      ) : (
+        children
+      )}
     </button>
   );
 }

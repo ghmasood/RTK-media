@@ -7,7 +7,7 @@ export const addUser = createAsyncThunk(
     const response = await axios.post("http://localhost:4000/users", {
       name: nameInput,
     });
-    await new Promise((res) => setTimeout(res, 4000));
+    await new Promise((res) => setTimeout(res, 1500));
 
     return response.data;
   }
