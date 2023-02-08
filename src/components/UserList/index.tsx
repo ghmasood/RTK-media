@@ -22,7 +22,18 @@ function UserList() {
           <p>{error.message}</p>
         </div>
       ) : (
-        <span>{data.length}</span>
+        <div className="w-full flex flex-col gap-4">
+          {data.map((item) => (
+            <div
+              key={item.id}
+              className="w-full rounded-lg p-2 bg-violet-500 cursor-pointer"
+            >
+              <span className="text-white text-lg font-medium">
+                {item.name}
+              </span>
+            </div>
+          ))}
+        </div>
       )}
     </>
   );
