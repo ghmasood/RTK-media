@@ -37,7 +37,8 @@ function Button({
       "border-violet-600 hover:bg-violet-700 bg-violet-600  text-white":
         primary,
       "opacity-80 cursor-not-allowed": loading,
-      "border-gray-900 bg-gray-900 text-white": secondary,
+      "border-white bg-transparent text-white hover:bg-white hover:text-violet-600":
+        secondary,
       "border-green-500 bg-green-500 text-white": success,
       "border-yellow-400 bg-yellow-400 text-white": warning,
       "border-red-500 bg-red-500 text-white": danger,
