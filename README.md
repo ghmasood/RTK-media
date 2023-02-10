@@ -22,3 +22,4 @@ You can improve it by adding style and other things! and for use this project yo
 - faker
 
 ### Snapshot:
+<img width="1680" alt="Screenshot 2023-02-10 at 2 53 48 PM" src="https://user-images.githubusercontent.com/33165677/218082468-0131b96f-c326-4fbf-82b9-57d6f2473aab.png">
