@@ -5,19 +5,17 @@ import { IUserdata } from "../../../../store/slices/usersSlice";
 import Button from "../../../Button/Button";
 import { TiDelete } from "react-icons/ti";
 import { VscTriangleDown } from "react-icons/vsc";
+import ExpandPanel from "../../../ExpandablePanel";
+import AlbumList from "../../../AlbumList";
 
 function ListItem(user: IUserdata) {
   const [doRemove, isLoading, err] = useThunk(removeUser);
   const deleteHandle = (id: number) => {
     doRemove(id);
   };
-  return (
-    <div
-      key={user.id}
-      className={`shadow-violet-900 shadow-sm w-full justify-between rounded-xl px-4 py-2 ${
-        err ? "!bg-red-200" : ""
-      }  bg-violet-600 hover:bg-violet-700 duration-300  min-h-[3rem] flex items-center`}
-    >
+
+  const header = (
+    <>
       <div className="flex gap-2 items-center justify-center">
         <Button
           loading={isLoading}
@@ -40,19 +38,12 @@ function ListItem(user: IUserdata) {
           </span>
         )}
       </div>
-      <Button
-        loading={isLoading}
-        className={"border-none !p-0"}
-        onClick={() => {}}
-      >
-        <VscTriangleDown
-          viewBox="2 5 12 6"
-          size={20}
-          cursor={"pointer"}
-          color="white"
-        />
-      </Button>
-    </div>
+    </>
+  );
+  return (
+    <ExpandPanel header={header}>
+      <AlbumList user={user} />
+    </ExpandPanel>
   );
 }
 
