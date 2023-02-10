@@ -31,8 +31,40 @@
     {
       "name": "Jose Heaney",
       "id": 10
+    },
+    {
+      "name": "Ron Howe",
+      "id": 11
+    },
+    {
+      "name": "Courtney Mraz",
+      "id": 12
+    },
+    {
+      "name": "Ana O'Connell",
+      "id": 13
+    },
+    {
+      "name": "Krystal Adams Jr.",
+      "id": 14
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 1,
+      "title": "Hiking Trip",
+      "userId": 3
+    },
+    {
+      "id": 2,
+      "title": "Sea",
+      "userId": 3
+    },
+    {
+      "id": 3,
+      "title": "Sea",
+      "userId": 4
+    }
+  ],
   "photos": []
 }

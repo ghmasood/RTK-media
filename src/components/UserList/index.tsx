@@ -44,7 +44,7 @@ function UserList() {
         </div>
       </div>
       {isLoadingUsers ? (
-        <Skeleton numbers={6} customClass="!gap-1.5" ItemCustomClass="!h-12" />
+        <Skeleton numbers={10} customClass="!gap-1.5" ItemCustomClass="!h-12" />
       ) : loadingUserError ? (
         <div className="flex flex-col items-start px-4 bg-red-200 rounded-xl h-12 justify-center">
           <p className="text-red-600 text-xl font-bold italic">
@@ -52,7 +52,7 @@ function UserList() {
           </p>
         </div>
       ) : (
-        <div className="w-full flex flex-col gap-1.5 max-h-[20rem] overflow-scroll">
+        <div className="w-full flex flex-col gap-1.5 max-h-[41rem] overflow-scroll">
           {data.map((item) => (
             <ListItem key={item.id} name={item.name} id={item.id} />
           ))}
