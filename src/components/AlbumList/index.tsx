@@ -5,7 +5,7 @@ interface IAlbumListProps {
   user: IUserdata;
 }
 function AlbumList({ user }: IAlbumListProps) {
-  return <div>Album for {user.name}</div>;
+  return <div className="text-white">Album for {user.name}</div>;
 }
 
 export default AlbumList;

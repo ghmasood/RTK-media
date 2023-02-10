@@ -4,7 +4,6 @@ import { useThunk } from "../../../../store/hooks";
 import { IUserdata } from "../../../../store/slices/usersSlice";
 import Button from "../../../Button/Button";
 import { TiDelete } from "react-icons/ti";
-import { VscTriangleDown } from "react-icons/vsc";
 import ExpandPanel from "../../../ExpandablePanel";
 import AlbumList from "../../../AlbumList";
 

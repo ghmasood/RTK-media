@@ -1,6 +1,5 @@
 import React, { ReactNode, useState } from "react";
-import { VscTriangleDown, VscTriangleUp } from "react-icons/vsc";
-import Button from "../Button/Button";
+import { VscTriangleDown } from "react-icons/vsc";
 
 interface IExpaExpandPanelProps {
   header: ReactNode;
