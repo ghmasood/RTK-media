@@ -1,25 +1,50 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { title } from "process";
 import { IUserdata } from "../slices/usersSlice";
+
+interface AlbumRes {
+  id: number;
+  userId: number;
+  title: string;
+}
+type AlbumsResponse = AlbumRes[];
 
 export const AlbumsApi = createApi({
   reducerPath: "albums",
+  tagTypes: ["Album", "UsersAlbum"],
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:4000",
     fetchFn: async (...args) => {
-      await new Promise((res) => setTimeout(res, 1500));
+      await new Promise((res) => setTimeout(res, 1000));
       return fetch(...args);
     },
   }),
   endpoints(builder) {
     return {
-      addAlbum: builder.mutation({
+      removeAlbum: builder.mutation({
+        invalidatesTags: (
+          result,
+          error,
+          arg: { id: number; userId: number; title: string }
+        ) => {
+          return [{ type: "Album", id: arg.id }];
+        },
+        query: (album: { id: number; userId: number; title: string }) => {
+          return {
+            method: "DELETE",
+            url: `/albums/${album.id}`,
+          };
+        },
+      }),
+      addAlbum: builder.mutation<
+        AlbumsResponse,
+        { user: IUserdata; albumTitle: string }
+      >({
         invalidatesTags: (
           result,
           error,
           arg: { user: IUserdata; albumTitle: string }
         ) => {
-          return [{ type: "Album", id: arg.user.id }];
+          return [{ type: "UsersAlbum", id: arg.user.id }];
         },
         query: (arg: { user: IUserdata; albumTitle: string }) => {
           return {
@@ -32,9 +57,17 @@ export const AlbumsApi = createApi({
           };
         },
       }),
-      fetchAlbums: builder.query({
-        providesTags: (result, error, user: IUserdata) => {
-          return [{ type: "Album", id: user.id }];
+      fetchAlbums: builder.query<AlbumsResponse, IUserdata>({
+        providesTags: (result, error, user) => {
+          return result
+            ? [
+                ...result.map((item) => ({
+                  type: "Album" as const,
+                  id: item.id,
+                })),
+                { type: "UsersAlbum", id: user.id },
+              ]
+            : [{ type: "UsersAlbum", id: user.id }];
         },
         query: (user: IUserdata) => {
           return {
@@ -48,4 +81,8 @@ export const AlbumsApi = createApi({
   },
 });
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation } = AlbumsApi;
+export const {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} = AlbumsApi;

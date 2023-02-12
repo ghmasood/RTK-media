@@ -1,21 +1,21 @@
-import { faker } from "@faker-js/faker";
-import { SerializedError } from "@reduxjs/toolkit";
-import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 import React from "react";
+import { faker } from "@faker-js/faker";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 import { useAddAlbumMutation, useFetchAlbumsQuery } from "../../store";
 import { IUserdata } from "../../store/slices/usersSlice";
 import Button from "../Button/Button";
-import ExpandPanel from "../ExpandablePanel";
 import Skeleton from "../skeleton";
+import AlbumItem from "./components/AlbumListItem";
 
 interface IAlbumListProps {
   user: IUserdata;
 }
 function AlbumList({ user }: IAlbumListProps) {
-  const { data, error, isLoading } = useFetchAlbumsQuery(user);
+  const { data, error, isLoading, isFetching } = useFetchAlbumsQuery(user);
   const err = error as FetchBaseQueryError;
   const albumData = data as { id: number; userId: number; title: string }[];
-  const [addAlbum, result] = useAddAlbumMutation();
+
+  const [addAlbum, results] = useAddAlbumMutation();
   return (
     <div className=" w-full flex flex-col gap-4">
       <div className="flex justify-between">
@@ -23,7 +23,7 @@ function AlbumList({ user }: IAlbumListProps) {
           Album for {user.name}
         </h2>
         <Button
-          loading={result.isLoading}
+          loading={results.isLoading || isFetching}
           secondary
           rounded
           onClick={() => {
@@ -33,28 +33,15 @@ function AlbumList({ user }: IAlbumListProps) {
           + Add Album
         </Button>
       </div>
-      {isLoading ? (
-        <Skeleton customClass="!gap-1.5" ItemCustomClass="!h-8" numbers={2} />
+      {isLoading || isFetching ? (
+        <Skeleton customClass="!gap-1.5" ItemCustomClass="!h-8" numbers={3} />
       ) : err ? (
         <div>Eror Code: {err.status}</div>
       ) : (
         <div className="w-full flex flex-col gap-1.5 pl-4">
           {albumData.length > 0 ? (
             albumData.map((item) => (
-              <ExpandPanel
-                chevronColor="rgb(76 29 149)"
-                customClass="!bg-violet-100"
-                header={
-                  <span
-                    key={item.id}
-                    className=" text-violet-900 text-lg px-2 rounded-lg"
-                  >
-                    {item.title}
-                  </span>
-                }
-              >
-                <>PHOTOS!!</>
-              </ExpandPanel>
+              <AlbumItem albumData={item} key={item.id} />
             ))
           ) : (
             <span className="bg-violet-100 text-violet-900 w-full text-lg px-2 rounded-lg">

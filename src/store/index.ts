@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
-import { delay } from "@reduxjs/toolkit/dist/utils";
 import { AlbumsApi } from "./API/albumsApi";
 import { userReducer } from "./slices/usersSlice";
 
@@ -22,4 +21,8 @@ setupListeners(store.dispatch);
 export * from "./thunks/fetchUsers";
 export * from "./thunks/addUser";
 export * from "./thunks/removeuser";
-export { useFetchAlbumsQuery, useAddAlbumMutation } from "./API/albumsApi";
+export {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} from "./API/albumsApi";
