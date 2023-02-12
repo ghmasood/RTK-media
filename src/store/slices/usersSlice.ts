@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUserdata } from "../../types";
+import { IUserData } from "../../types";
 import { addUser } from "../thunks/addUser";
 import { fetchUsers } from "../thunks/fetchUsers";
 import { removeUser } from "../thunks/removeuser";
@@ -7,7 +7,7 @@ import { removeUser } from "../thunks/removeuser";
 const usersSlice = createSlice({
   name: "users",
   initialState: {
-    data: [] as IUserdata[],
+    data: [] as IUserData[],
     isLoading: false,
     error: {} as Error | null,
   },

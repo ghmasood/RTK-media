@@ -5,10 +5,9 @@ import { useAddAlbumMutation, useFetchAlbumsQuery } from "../../store";
 import Button from "../Button/Button";
 import Skeleton from "../skeleton";
 import AlbumItem from "./components/AlbumListItem";
-import { IUserdata } from "../../types";
-
+import { IUserData } from "../../types";
 interface IAlbumListProps {
-  user: IUserdata;
+  user: IUserData;
 }
 function AlbumList({ user }: IAlbumListProps) {
   const { data, error, isLoading, isFetching } = useFetchAlbumsQuery(user);

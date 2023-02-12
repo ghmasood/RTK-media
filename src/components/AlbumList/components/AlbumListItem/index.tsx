@@ -1,11 +1,15 @@
 import React from "react";
 import { TiDelete } from "react-icons/ti";
 import { useRemoveAlbumMutation } from "../../../../store";
-import { IAlbumItem } from "../../../../types";
+import { IAlbumData } from "../../../../types";
 import Button from "../../../Button/Button";
 import ExpandPanel from "../../../ExpandablePanel";
+import PhotosList from "../../../PhotoList";
 
-function AlbumItem({ albumData }: IAlbumItem) {
+interface IAlbumItemProps {
+  albumData: IAlbumData;
+}
+function AlbumItem({ albumData }: IAlbumItemProps) {
   const [remobeAlbum, removeResults] = useRemoveAlbumMutation();
 
   return (
@@ -34,7 +38,7 @@ function AlbumItem({ albumData }: IAlbumItem) {
         </div>
       }
     >
-      <>PHOTOS!!</>
+      <PhotosList album={albumData} />
     </ExpandPanel>
   );
 }

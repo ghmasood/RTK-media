@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { AlbumRes, AlbumsResponse, IUserdata } from "../../types";
+import { IAlbumData, AlbumsResponse, IUserData } from "../../types";
 
 export const AlbumsApi = createApi({
   reducerPath: "albums",
@@ -13,7 +13,7 @@ export const AlbumsApi = createApi({
   }),
   endpoints(builder) {
     return {
-      removeAlbum: builder.mutation<AlbumsResponse, AlbumRes>({
+      removeAlbum: builder.mutation<AlbumsResponse, IAlbumData>({
         invalidatesTags: (
           result,
           error,
@@ -30,16 +30,16 @@ export const AlbumsApi = createApi({
       }),
       addAlbum: builder.mutation<
         AlbumsResponse,
-        { user: IUserdata; albumTitle: string }
+        { user: IUserData; albumTitle: string }
       >({
         invalidatesTags: (
           result,
           error,
-          arg: { user: IUserdata; albumTitle: string }
+          arg: { user: IUserData; albumTitle: string }
         ) => {
           return [{ type: "UsersAlbum", id: arg.user.id }];
         },
-        query: (arg: { user: IUserdata; albumTitle: string }) => {
+        query: (arg: { user: IUserData; albumTitle: string }) => {
           return {
             url: "/albums",
             method: "Post",
@@ -50,7 +50,7 @@ export const AlbumsApi = createApi({
           };
         },
       }),
-      fetchAlbums: builder.query<AlbumsResponse, IUserdata>({
+      fetchAlbums: builder.query<AlbumsResponse, IUserData>({
         providesTags: (result, error, user) => {
           return result
             ? [
@@ -62,7 +62,7 @@ export const AlbumsApi = createApi({
               ]
             : [{ type: "UsersAlbum", id: user.id }];
         },
-        query: (user: IUserdata) => {
+        query: (user: IUserData) => {
           return {
             url: "/albums",
             params: { userId: user.id },

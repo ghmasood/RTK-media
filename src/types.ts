@@ -1,15 +1,12 @@
-export interface IAlbumItem {
-  albumData: { id: number; userId: number; title: string };
-}
-
-export interface IUserdata {
-  name: string;
-  id: number;
-}
-
-export interface AlbumRes {
+export interface IAlbumData {
   id: number;
   userId: number;
   title: string;
 }
-export type AlbumsResponse = AlbumRes[];
+
+export interface IUserData {
+  name: string;
+  id: number;
+}
+
+export type AlbumsResponse = IAlbumData[];

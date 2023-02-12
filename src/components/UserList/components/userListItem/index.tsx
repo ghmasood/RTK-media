@@ -5,9 +5,9 @@ import Button from "../../../Button/Button";
 import { TiDelete } from "react-icons/ti";
 import ExpandPanel from "../../../ExpandablePanel";
 import AlbumList from "../../../AlbumList";
-import { IUserdata } from "../../../../types";
+import { IUserData } from "../../../../types";
 
-function ListItem(user: IUserdata) {
+function ListItem(user: IUserData) {
   const [doRemove, isLoading, err] = useThunk(removeUser);
   const deleteHandle = (id: number) => {
     doRemove(id);
