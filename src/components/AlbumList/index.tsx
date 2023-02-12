@@ -2,10 +2,10 @@ import React from "react";
 import { faker } from "@faker-js/faker";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 import { useAddAlbumMutation, useFetchAlbumsQuery } from "../../store";
-import { IUserdata } from "../../store/slices/usersSlice";
 import Button from "../Button/Button";
 import Skeleton from "../skeleton";
 import AlbumItem from "./components/AlbumListItem";
+import { IUserdata } from "../../types";
 
 interface IAlbumListProps {
   user: IUserdata;

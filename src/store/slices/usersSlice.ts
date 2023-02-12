@@ -1,12 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IUserdata } from "../../types";
 import { addUser } from "../thunks/addUser";
 import { fetchUsers } from "../thunks/fetchUsers";
 import { removeUser } from "../thunks/removeuser";
-
-export interface IUserdata {
-  name: string;
-  id: number;
-}
 
 const usersSlice = createSlice({
   name: "users",

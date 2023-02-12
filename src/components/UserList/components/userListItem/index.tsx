@@ -1,11 +1,11 @@
 import React from "react";
 import { removeUser } from "../../../../store";
 import { useThunk } from "../../../../store/hooks";
-import { IUserdata } from "../../../../store/slices/usersSlice";
 import Button from "../../../Button/Button";
 import { TiDelete } from "react-icons/ti";
 import ExpandPanel from "../../../ExpandablePanel";
 import AlbumList from "../../../AlbumList";
+import { IUserdata } from "../../../../types";
 
 function ListItem(user: IUserdata) {
   const [doRemove, isLoading, err] = useThunk(removeUser);

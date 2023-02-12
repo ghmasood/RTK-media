@@ -1,12 +1,10 @@
 import React from "react";
 import { TiDelete } from "react-icons/ti";
 import { useRemoveAlbumMutation } from "../../../../store";
+import { IAlbumItem } from "../../../../types";
 import Button from "../../../Button/Button";
 import ExpandPanel from "../../../ExpandablePanel";
 
-export interface IAlbumItem {
-  albumData: { id: number; userId: number; title: string };
-}
 function AlbumItem({ albumData }: IAlbumItem) {
   const [remobeAlbum, removeResults] = useRemoveAlbumMutation();
 

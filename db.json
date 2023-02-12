@@ -17,10 +17,6 @@
       "id": 6
     },
     {
-      "name": "Lela O'Kon",
-      "id": 7
-    },
-    {
       "name": "Oscar Beatty",
       "id": 8
     },
@@ -73,71 +69,6 @@
       "userId": 3,
       "title": "Sleek Soft Chair",
       "id": 5
-    },
-    {
-      "userId": 7,
-      "title": "Handmade Concrete Salad",
-      "id": 8
-    },
-    {
-      "userId": 7,
-      "title": "Elegant Frozen Hat",
-      "id": 9
-    },
-    {
-      "userId": 7,
-      "title": "Handcrafted Fresh Table",
-      "id": 10
-    },
-    {
-      "userId": 7,
-      "title": "Tasty Concrete Cheese",
-      "id": 11
-    },
-    {
-      "userId": 7,
-      "title": "Small Metal Gloves",
-      "id": 12
-    },
-    {
-      "userId": 7,
-      "title": "Refined Concrete Gloves",
-      "id": 13
-    },
-    {
-      "userId": 7,
-      "title": "Oriental Concrete Sausages",
-      "id": 14
-    },
-    {
-      "userId": 7,
-      "title": "Awesome Granite Soap",
-      "id": 15
-    },
-    {
-      "userId": 7,
-      "title": "Generic Bronze Fish",
-      "id": 16
-    },
-    {
-      "userId": 7,
-      "title": "Intelligent Plastic Chicken",
-      "id": 17
-    },
-    {
-      "userId": 7,
-      "title": "Fantastic Granite Table",
-      "id": 18
-    },
-    {
-      "userId": 7,
-      "title": "Elegant Bronze Chair",
-      "id": 19
-    },
-    {
-      "userId": 7,
-      "title": "Luxurious Bronze Table",
-      "id": 20
     },
     {
       "userId": 8,
@@ -218,11 +149,6 @@
       "userId": 9,
       "title": "Incredible Bronze Salad",
       "id": 37
-    },
-    {
-      "userId": 7,
-      "title": "Incredible Cotton Mouse",
-      "id": 38
     },
     {
       "userId": 15,

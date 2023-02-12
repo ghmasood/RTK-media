@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IUserdata } from "../slices/usersSlice";
 
 export const removeUser = createAsyncThunk(
   "users/remove",

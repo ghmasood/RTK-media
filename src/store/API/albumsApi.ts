@@ -1,12 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IUserdata } from "../slices/usersSlice";
-
-interface AlbumRes {
-  id: number;
-  userId: number;
-  title: string;
-}
-type AlbumsResponse = AlbumRes[];
+import { AlbumRes, AlbumsResponse, IUserdata } from "../../types";
 
 export const AlbumsApi = createApi({
   reducerPath: "albums",
@@ -20,7 +13,7 @@ export const AlbumsApi = createApi({
   }),
   endpoints(builder) {
     return {
-      removeAlbum: builder.mutation({
+      removeAlbum: builder.mutation<AlbumsResponse, AlbumRes>({
         invalidatesTags: (
           result,
           error,
