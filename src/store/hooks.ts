@@ -18,7 +18,9 @@ export declare type AsyncThunkConfig = {
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-export function useThunk(thunk: AsyncThunk<any, any, AsyncThunkConfig>) {
+export function useThunk(
+  thunk: AsyncThunk<any, any, AsyncThunkConfig>
+): [(arg: string | void | number) => void, boolean, Error | null] {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const dispatch = useAppDispatch();
@@ -33,5 +35,5 @@ export function useThunk(thunk: AsyncThunk<any, any, AsyncThunkConfig>) {
     },
     [dispatch, thunk]
   );
-  return [runThunk, isLoading, error] as const;
+  return [runThunk, isLoading, error];
 }

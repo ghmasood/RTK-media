@@ -179,7 +179,68 @@
       "userId": 4,
       "title": "Elegant Rubber Bike",
       "id": 44
+    },
+    {
+      "userId": 5,
+      "title": "Incredible Rubber Cheese",
+      "id": 45
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=87459",
+      "id": 1
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=20566",
+      "id": 2
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=45906",
+      "id": 3
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=68166",
+      "id": 4
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=4539",
+      "id": 5
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=28538",
+      "id": 6
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=77609",
+      "id": 7
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=25391",
+      "id": 8
+    },
+    {
+      "albumId": 3,
+      "url": "https://loremflickr.com/150/150/abstract?lock=38774",
+      "id": 9
+    },
+    {
+      "albumId": 45,
+      "url": "https://loremflickr.com/150/150/abstract?lock=33719",
+      "id": 10
+    },
+    {
+      "albumId": 45,
+      "url": "https://loremflickr.com/150/150/abstract?lock=6423",
+      "id": 11
+    }
+  ]
 }

@@ -12,7 +12,6 @@ interface IAlbumListProps {
 function AlbumList({ user }: IAlbumListProps) {
   const { data, error, isLoading, isFetching } = useFetchAlbumsQuery(user);
   const err = error as FetchBaseQueryError;
-  const albumData = data as { id: number; userId: number; title: string }[];
 
   const [addAlbum, results] = useAddAlbumMutation();
   return (
@@ -33,15 +32,17 @@ function AlbumList({ user }: IAlbumListProps) {
         </Button>
       </div>
       {isLoading || isFetching ? (
-        <Skeleton customClass="!gap-1.5" ItemCustomClass="!h-8" numbers={3} />
+        <Skeleton
+          customClass="!gap-1.5 ml-4"
+          ItemCustomClass="!h-12"
+          numbers={3}
+        />
       ) : err ? (
         <div>Eror Code: {err.status}</div>
       ) : (
-        <div className="w-full flex flex-col gap-1.5 pl-4">
-          {albumData.length > 0 ? (
-            albumData.map((item) => (
-              <AlbumItem albumData={item} key={item.id} />
-            ))
+        <div className="w-full flex flex-col !gap-1.5 pl-4">
+          {data && data.length > 0 ? (
+            data.map((item) => <AlbumItem albumData={item} key={item.id} />)
           ) : (
             <span className="bg-violet-100 text-violet-900 w-full text-lg px-2 rounded-lg">
               No any Album!
