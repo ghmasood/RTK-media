@@ -21,6 +21,7 @@ function PhotosList({ album }: IPhotosListProp) {
           Album for {album.title}
         </h2>
         <Button
+          className="!h-12 px-4"
           loading={addResult.isLoading || isFetching}
           secondary
           rounded

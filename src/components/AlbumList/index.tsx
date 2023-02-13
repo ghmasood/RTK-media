@@ -21,6 +21,7 @@ function AlbumList({ user }: IAlbumListProps) {
           Album for {user.name}
         </h2>
         <Button
+          className="!h-12 !px-4"
           loading={results.isLoading || isFetching}
           secondary
           rounded

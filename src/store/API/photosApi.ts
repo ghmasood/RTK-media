@@ -46,7 +46,7 @@ export const photosApi = createApi({
             url: "/photos",
             body: {
               albumId: album.id,
-              url: faker.image.abstract(150, 150, true),
+              url: faker.image.city(150, 150, true),
             },
           };
         },
